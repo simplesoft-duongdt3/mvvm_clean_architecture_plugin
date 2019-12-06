@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="${FEATURE_NAME_LOWER}ViewModel"
+            type="${ROOT_PACKAGE}.viewmodel.${FEATURE_NAME}ViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:visibility="@{${FEATURE_NAME_LOWER}ViewModel.${FEATURE_NAME_LOWER}LiveData.isLoading() ? View.VISIBLE : View.GONE, default = visible}">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateDrawable="@drawable/progress_loading" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true">
+
+            <!-- Content view here -->
+        </FrameLayout>
+    </FrameLayout>
+</layout>

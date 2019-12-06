@@ -1,0 +1,46 @@
+package ${PACKAGE_NAME}
+
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.toast.comico.vn.common_android.AppDispatchers
+import com.toast.comico.vn.common_android.BaseViewModel
+import com.toast.comico.vn.presentation.common.RequestState
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+
+class ${FEATURE_NAME}ViewModel(
+    private val appDispatchers: AppDispatchers
+) : BaseViewModel() {
+    private var ${FEATURE_NAME_LOWER}Model =
+        ${FEATURE_NAME}Model(
+            requestState = RequestState.INIT
+        )
+
+    val ${FEATURE_NAME_LOWER}LiveData: MutableLiveData<${FEATURE_NAME}Model> =
+        MutableLiveData(${FEATURE_NAME_LOWER}Model)
+
+
+    private var get${FEATURE_NAME}Job: Job? = null
+
+    private fun updateModel(model: ${FEATURE_NAME}Model) {
+        ${FEATURE_NAME_LOWER}Model = model
+        ${FEATURE_NAME_LOWER}LiveData.value = ${FEATURE_NAME_LOWER}Model
+    }
+
+    fun get${FEATURE_NAME}() {
+        updateModel(
+            model = ${FEATURE_NAME_LOWER}Model.copy(requestState = RequestState.LOADING)
+        )
+
+        get${FEATURE_NAME}Job?.cancel()
+        get${FEATURE_NAME}Job = viewModelScope.launch(appDispatchers.main) {
+            //TODO request something here
+        }
+    }
+
+    data class ${FEATURE_NAME}Model(
+        val requestState: RequestState
+    ) {
+        fun isLoading() = requestState == RequestState.LOADING
+    }
+}

@@ -1,0 +1,41 @@
+<idea-plugin>
+    <id>tinyappsteam.cleanarchitecture_mvvm</id>
+    <name>Clean Architecture MVVM ComicoVN</name>
+    <vendor email="tinyappsteam@gmail.com" url="https://github.com/simplesoft-duongdt3/plugin_clean_architecture_mvp">
+        TinyAppsTeam
+    </vendor>
+
+    <description><![CDATA[
+    Generator for Clean Architecture MVVM ComicoVN.
+    + Support Presentation layer
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="191"/>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products -->
+    <depends>com.intellij.modules.lang</depends>
+    <actions>
+        <action id="CleanMVP.CreatePresentationFiles" class="action.mvvm.CleanArchitecturePresentationGeneratorAction"
+                text="Create Clean MVVM ComicoVN Presentation files"
+                description="Create Clean Architecture MVVM Presentation files">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>
+        </action>
+        <!--        <action id="CleanMVP.CreatePresentationFiles" class="action.mvp.CleanArchitecturePresentationGeneratorAction" text="Create Clean MVP Presentation files"-->
+        <!--                description="Create Clean Architecture Presentation files">-->
+        <!--            <add-to-group  group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>-->
+        <!--        </action>-->
+        <!--        <action id="CleanMVP.CreateDomainFiles" class="action.mvp.CleanArchitectureDomainGeneratorAction" text="Create Clean MVP Domain files"-->
+        <!--                description="Create Clean Architecture Domain files">-->
+        <!--            <add-to-group  group-id="NewGroup" anchor="after" relative-to-action="CleanMVP.CreatePresentationFiles"/>-->
+        <!--        </action>-->
+        <!--        <action id="CleanMVP.CreateEventFiles" class="action.mvp.CleanArchitectureEventGeneratorAction" text="Create Clean MVP Event files"-->
+        <!--                description="Create Clean Architecture Event files">-->
+        <!--            <add-to-group  group-id="NewGroup" anchor="after" relative-to-action="CleanMVP.CreateDomainFiles"/>-->
+        <!--        </action>-->
+    </actions>
+</idea-plugin>

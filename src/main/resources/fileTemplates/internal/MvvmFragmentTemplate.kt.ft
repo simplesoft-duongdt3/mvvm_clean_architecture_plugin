@@ -1,0 +1,63 @@
+package ${PACKAGE_NAME}
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.BindingAdapter
+import com.toast.comico.vn.common_android.BaseFragment
+import com.toast.comico.vn.common_android.BaseViewModel
+import com.toast.comico.vn.databinding.Fragment${FEATURE_NAME}Binding
+import ${ROOT_PACKAGE}.viewmodel.${FEATURE_NAME}ViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
+class ${FEATURE_NAME}Fragment : BaseFragment() {
+    private lateinit var ${FEATURE_NAME_LOWER}Binding: Fragment${FEATURE_NAME}Binding
+    private val ${FEATURE_NAME_LOWER}ViewModel: ${FEATURE_NAME}ViewModel by viewModel()
+
+    override fun getViewModel(): BaseViewModel? {
+        return ${FEATURE_NAME_LOWER}ViewModel
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        ${FEATURE_NAME_LOWER}Binding = Fragment${FEATURE_NAME}Binding.inflate(inflater, container, false)
+        ${FEATURE_NAME_LOWER}Binding.lifecycleOwner = viewLifecycleOwner
+        ${FEATURE_NAME_LOWER}Binding.${FEATURE_NAME_LOWER}ViewModel = ${FEATURE_NAME_LOWER}ViewModel
+        return ${FEATURE_NAME_LOWER}Binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
+        ${FEATURE_NAME_LOWER}ViewModel.get${FEATURE_NAME}()
+    }
+
+    private fun initView() {
+        //TODO setup view, event click... here
+    }
+
+    companion object {
+        fun newInstance(): ${FEATURE_NAME}Fragment {
+            val args = Bundle()
+            val fragment = ${FEATURE_NAME}Fragment()
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    object Binding {
+        @BindingAdapter("set${FEATURE_NAME}")
+        @JvmStatic
+        fun set${FEATURE_NAME}(
+            view: View,
+            ${FEATURE_NAME_LOWER}Model: ${FEATURE_NAME}ViewModel.${FEATURE_NAME}Model
+        ) {
+            //TODO binding model here
+        }
+    }
+
+}
