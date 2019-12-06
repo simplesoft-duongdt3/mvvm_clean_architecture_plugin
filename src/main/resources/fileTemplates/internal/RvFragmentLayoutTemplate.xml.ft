@@ -20,11 +20,11 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvProfileDetail"
+                android:id="@+id/rv${FEATURE_NAME}"
                 items="@{${FEATURE_NAME_LOWER}ViewModel.${FEATURE_NAME_LOWER}LiveData}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/item_profile_detail" />
+                tools:listitem="@layout/item_${FEATURE_NAME_UNDERSCORE}" />
 
             <FrameLayout
                 android:layout_width="match_parent"

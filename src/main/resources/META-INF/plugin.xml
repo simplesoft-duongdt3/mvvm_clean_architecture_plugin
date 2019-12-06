@@ -8,7 +8,8 @@
 
     <description><![CDATA[
     Generator for Clean Architecture MVVM ComicoVN.
-    + Support Presentation layer
+    + Support Simple Presentation layer (Fragment, ViewModel, DI Koin, Layout Fragment)
+    + Support RecyclerView Presentation layer + Domain Layer (Fragment, ViewBinder, ViewModel, DI Koin, Layout Fragment, Layout Item, UseCase + Domain model)
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
