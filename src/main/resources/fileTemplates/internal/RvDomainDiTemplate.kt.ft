@@ -1,0 +1,12 @@
+package ${PACKAGE_NAME}
+
+import ${ROOT_PACKAGE}.domain.usecase.Get${FEATURE_NAME}UseCase
+import org.koin.dsl.module
+
+//TODO add module to root domain Koin module
+val ${FEATURE_NAME_LOWER}DomainModule = module {
+
+    factory {
+        Get${FEATURE_NAME}UseCase()
+    }
+}

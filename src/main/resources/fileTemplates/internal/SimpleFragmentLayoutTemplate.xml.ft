@@ -27,9 +27,10 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="true">
+            android:clickable="true"
+            set${FEATURE_NAME}="@{${FEATURE_NAME_LOWER}ViewModel.${FEATURE_NAME_LOWER}LiveData}">
 
-            <!-- Content view here -->
+            <!-- //TODO add content view here -->
         </FrameLayout>
     </FrameLayout>
 </layout>

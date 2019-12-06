@@ -1,0 +1,45 @@
+package ${PACKAGE_NAME}
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.databinding.library.baseAdapters.BR
+import androidx.lifecycle.MutableLiveData
+import com.drakeet.multitype.ItemViewBinder
+import com.toast.comico.vn.databinding.Item${FEATURE_NAME}Binding
+import com.toast.comico.vn.presentation.common.BaseViewHolderBinding
+
+class ${FEATURE_NAME}ViewBinder :
+    ItemViewBinder<${FEATURE_NAME}ViewBinder.${FEATURE_NAME}, BaseViewHolderBinding<${FEATURE_NAME}ViewBinder.ViewBinderModel>>() {
+    val itemClickLiveData = MutableLiveData<${FEATURE_NAME}>()
+
+    override fun onBindViewHolder(
+        holder: BaseViewHolderBinding<ViewBinderModel>,
+        item: ${FEATURE_NAME}
+    ) {
+        holder.bind(
+            BR.viewBinderModel, ViewBinderModel(
+                item = item,
+                itemClickLiveData = itemClickLiveData
+            )
+        )
+    }
+
+    override fun onCreateViewHolder(
+        inflater: LayoutInflater,
+        parent: ViewGroup
+    ): BaseViewHolderBinding<ViewBinderModel> {
+        val itemBinding = Item${FEATURE_NAME}Binding.inflate(inflater, parent, false)
+        return BaseViewHolderBinding(itemBinding)
+    }
+
+    data class ${FEATURE_NAME}(val id: Int, val title: String)
+
+    data class ViewBinderModel(
+        val item: ${FEATURE_NAME},
+        private val itemClickLiveData: MutableLiveData<${FEATURE_NAME}>
+    ) {
+        fun onItemClick() {
+            itemClickLiveData.value = item
+        }
+    }
+}

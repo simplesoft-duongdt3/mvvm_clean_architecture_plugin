@@ -11,7 +11,7 @@ abstract class FileTemplate {
 
     abstract val templateFileName: String
     abstract val resultFileName: String
-    abstract val subFolderName: String
+    abstract val subFolderNames: List<String>
 
 
     fun createTemplate(project: Project, destinationDirectory: PsiDirectory): PsiElement {

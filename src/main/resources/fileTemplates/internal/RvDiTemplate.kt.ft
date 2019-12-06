@@ -4,9 +4,12 @@ import ${ROOT_PACKAGE}.viewmodel.${FEATURE_NAME}ViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
+//TODO add module to root Koin module
 val ${FEATURE_NAME_LOWER}Module = module {
-
     viewModel {
-        ${FEATURE_NAME}ViewModel(appDispatchers = get())
+        ${FEATURE_NAME}ViewModel(
+            appDispatchers = get(),
+            get${FEATURE_NAME}UseCase = get()
+        )
     }
 }

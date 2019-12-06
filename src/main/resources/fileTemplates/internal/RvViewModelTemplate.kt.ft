@@ -1,0 +1,85 @@
+package ${PACKAGE_NAME}
+
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.toast.comico.vn.common_android.AppDispatchers
+import com.toast.comico.vn.common_android.BaseViewModel
+import com.toast.comico.vn.common_jvm.exception.Failure
+import com.toast.comico.vn.common_jvm.functional.Either
+import com.toast.comico.vn.domain.usecases.base.UseCaseParams
+import com.toast.comico.vn.presentation.common.RequestState
+import ${ROOT_PACKAGE}.domain.model.${FEATURE_NAME}Entity
+import ${ROOT_PACKAGE}.domain.model.${FEATURE_NAME}Result
+import ${ROOT_PACKAGE}.domain.usecase.Get${FEATURE_NAME}UseCase
+import ${ROOT_PACKAGE}.model.${FEATURE_NAME}Item
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
+class ${FEATURE_NAME}ViewModel(
+    private val appDispatchers: AppDispatchers,
+    private val get${FEATURE_NAME}UseCase: Get${FEATURE_NAME}UseCase
+) : BaseViewModel() {
+    private var ${FEATURE_NAME_LOWER}Model =
+        ${FEATURE_NAME}Model(
+            requestState = RequestState.INIT,
+            ${FEATURE_NAME_LOWER}Items = listOf()
+        )
+
+    val ${FEATURE_NAME_LOWER}LiveData: MutableLiveData<${FEATURE_NAME}Model> =
+        MutableLiveData(${FEATURE_NAME_LOWER}Model)
+
+    private var get${FEATURE_NAME}Job: Job? = null
+
+    private fun updateModel(model: ${FEATURE_NAME}Model) {
+        ${FEATURE_NAME_LOWER}Model = model
+        ${FEATURE_NAME_LOWER}LiveData.value = ${FEATURE_NAME_LOWER}Model
+    }
+
+    fun get${FEATURE_NAME}() {
+        updateModel(
+            model = ${FEATURE_NAME_LOWER}Model.copy(requestState = RequestState.LOADING)
+        )
+
+        get${FEATURE_NAME}Job?.cancel()
+        get${FEATURE_NAME}Job = viewModelScope.launch(appDispatchers.main) {
+            //TODO request something here
+            val profileResult: Either<Failure, ${FEATURE_NAME}Result> =
+                withContext(appDispatchers.io) {
+                    get${FEATURE_NAME}UseCase.execute(UseCaseParams.Empty)
+                }
+            profileResult.either({
+                updateModel(
+                    model = ${FEATURE_NAME_LOWER}Model.copy(requestState = RequestState.ERROR)
+                )
+            }, { result ->
+                updateModel(
+                    model = ${FEATURE_NAME_LOWER}Model.copy(
+                        requestState = RequestState.SUCCESS,
+                        ${FEATURE_NAME_LOWER}Items = map${FEATURE_NAME}Items(result)
+                    )
+                )
+            })
+        }
+    }
+
+    private fun map${FEATURE_NAME}Items(result: ${FEATURE_NAME}Result): List<${FEATURE_NAME}Item> {
+        return result.items.map { ${FEATURE_NAME_LOWER} ->
+            ${FEATURE_NAME}Item(
+                //TODO map${FEATURE_NAME}Items
+                id = ${FEATURE_NAME_LOWER}.id
+            )
+        }
+    }
+
+    fun ${FEATURE_NAME_LOWER}ItemClick(id: Int) {
+        //TODO ${FEATURE_NAME_LOWER}ItemClick
+    }
+
+    data class ${FEATURE_NAME}Model(
+        val requestState: RequestState,
+        val ${FEATURE_NAME_LOWER}Items: List<${FEATURE_NAME}Item>
+    ) {
+        fun isLoading() = requestState == RequestState.LOADING
+    }
+}

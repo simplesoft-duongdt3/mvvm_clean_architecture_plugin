@@ -1,4 +1,4 @@
-package template.mvvm.presentation
+package template.mvvm
 
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDirectory

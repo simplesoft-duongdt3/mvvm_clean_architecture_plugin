@@ -1,4 +1,4 @@
-package template.mvvm.presentation
+package template.mvvm.simple
 
 import template.FileTemplate
 import java.util.*
@@ -11,6 +11,6 @@ class ViewModelFileTemplate(private val featureName: String, private val parentP
         return getDefaultProperties(featureName = featureName, folderPath = parentPackage, templateProperties = templateProperties)
     }
 
-    override val templateFileName: String = "MvvmViewModelTemplate"
-    override val subFolderName: String = "viewmodel"
+    override val templateFileName: String = "SimpleViewModelTemplate"
+    override val subFolderNames = listOf("viewmodel")
 }

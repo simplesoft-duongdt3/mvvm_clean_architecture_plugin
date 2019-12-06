@@ -1,0 +1,3 @@
+package ${PACKAGE_NAME}
+
+data class ${FEATURE_NAME}Entity(val id: Int)

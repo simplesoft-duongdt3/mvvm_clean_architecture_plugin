@@ -1,0 +1,31 @@
+package ${PACKAGE_NAME}
+
+import com.toast.comico.vn.common_jvm.exception.Failure
+import com.toast.comico.vn.common_jvm.functional.Either
+import com.toast.comico.vn.domain.usecases.base.UseCase
+import com.toast.comico.vn.domain.usecases.base.UseCaseParams
+import ${ROOT_PACKAGE}.domain.model.${FEATURE_NAME}Entity
+import ${ROOT_PACKAGE}.domain.model.${FEATURE_NAME}Result
+
+class Get${FEATURE_NAME}UseCase :
+    UseCase<UseCaseParams.Empty, ${FEATURE_NAME}Result>() {
+
+    override suspend fun executeInternal(params: UseCaseParams.Empty): Either<Failure, ${FEATURE_NAME}Result> {
+        //TODO request data from somewhere
+        return Either.Success(
+            ${FEATURE_NAME}Result(
+                items = listOf(
+                    ${FEATURE_NAME}Entity(
+                        id = 1
+                    ),
+                    ${FEATURE_NAME}Entity(
+                        id = 2
+                    ),
+                    ${FEATURE_NAME}Entity(
+                        id = 3
+                    )
+                )
+            )
+        )
+    }
+}

@@ -7,7 +7,11 @@ import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDirectory
 import template.FileCreator
-import template.mvvm.presentation.*
+import template.mvvm.ParentPackageProcessor
+import template.mvvm.simple.DiFileTemplate
+import template.mvvm.simple.FragmentFileTemplate
+import template.mvvm.simple.FragmentLayoutFileTemplate
+import template.mvvm.simple.ViewModelFileTemplate
 import util.DialogProvider
 
 

@@ -1,4 +1,4 @@
-package template.mvvm.presentation
+package template.mvvm.simple
 
 import template.FileTemplate
 import java.util.*
@@ -13,8 +13,8 @@ class FragmentLayoutFileTemplate(private val featureName: String, private val pa
         return getDefaultProperties(featureName = featureName, folderPath = parentPackage, templateProperties = templateProperties)
     }
 
-    override val templateFileName: String = "MvvmFragmentLayoutTemplate"
-    override val subFolderName: String = ""
+    override val templateFileName: String = "SimpleFragmentLayoutTemplate"
+    override val subFolderNames = listOf<String>()
 
     private fun convertToUnderScoreText(input: String): String {
         val m: Matcher = Pattern.compile("([A-Z])").matcher(input)

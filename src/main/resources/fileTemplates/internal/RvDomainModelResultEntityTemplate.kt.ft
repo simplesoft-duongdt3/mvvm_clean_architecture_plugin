@@ -1,0 +1,3 @@
+package ${PACKAGE_NAME}
+
+data class ${FEATURE_NAME}Result(val items: List<${FEATURE_NAME}Entity>)

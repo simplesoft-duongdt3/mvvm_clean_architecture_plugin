@@ -1,6 +1,7 @@
 <idea-plugin>
     <id>tinyappsteam.cleanarchitecture_mvvm</id>
     <name>Clean Architecture MVVM ComicoVN</name>
+    <version>1.1.0</version>
     <vendor email="tinyappsteam@gmail.com" url="https://github.com/simplesoft-duongdt3/plugin_clean_architecture_mvp">
         TinyAppsTeam
     </vendor>
@@ -24,6 +25,12 @@
                 text="Create Clean MVVM ComicoVN Presentation files"
                 description="Create Clean Architecture MVVM Presentation files">
             <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>
+        </action>
+        <action id="CleanMVP.CreateRvPresentationFiles"
+                class="action.mvvm.CleanArchitectureRvPresentationGeneratorAction"
+                text="Create Clean MVVM ComicoVN RecyclerView Presentation files"
+                description="Create Clean Architecture MVVM RecyclerView Presentation files">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="CleanMVP.CreatePresentationFiles"/>
         </action>
         <!--        <action id="CleanMVP.CreatePresentationFiles" class="action.mvp.CleanArchitecturePresentationGeneratorAction" text="Create Clean MVP Presentation files"-->
         <!--                description="Create Clean Architecture Presentation files">-->

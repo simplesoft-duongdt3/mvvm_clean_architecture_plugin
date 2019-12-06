@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewBinderModel"
+            type="${ROOT_PACKAGE}.viewbinder.${FEATURE_NAME}ViewBinder.ViewBinderModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/home_top_banner_slide_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()-> viewBinderModel.onItemClick()}"
+        android:orientation="vertical">
+        <!-- //TODO add content view here using viewBinderModel variable -->
+        <TextView
+            style="@style/BodyTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_16"
+            android:text="@{viewBinderModel.item.title}"
+            tools:text="Item title here!" />
+    </LinearLayout>
+</layout>
