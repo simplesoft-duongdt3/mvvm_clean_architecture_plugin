@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>tinyappsteam.cleanarchitecture_mvvm</id>
     <name>Clean Architecture MVVM ComicoVN</name>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <vendor email="tinyappsteam@gmail.com" url="https://github.com/simplesoft-duongdt3/plugin_clean_architecture_mvp">
         TinyAppsTeam
     </vendor>
@@ -15,9 +15,9 @@
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
-    <idea-version since-build="191"/>
+    <idea-version since-build="202"/>
 
-    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html?from=jetbrains.org
          on how to target different products -->
     <!-- uncomment to enable plugin in all products -->
     <depends>com.intellij.modules.lang</depends>
