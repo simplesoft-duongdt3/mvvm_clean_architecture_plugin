@@ -17,7 +17,7 @@ dependencies {
 intellij {
     updateSinceUntilBuild false
     intellij.updateSinceUntilBuild false
-    version '2019.1'
+    version '2020.2'
     pluginName 'Clean Architecture MVVM'
     plugins 'kotlin'
     plugins 'android'
